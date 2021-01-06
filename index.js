@@ -1,6 +1,22 @@
 // Import stylesheets
-import './style.css';
+import "./style.css";
+import { LitElement, html, property, customElement } from "lit-element";
 
-// Write Javascript code!
-const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1>JS Starter</h1>`;
+class SimpleGreeting extends LitElement {
+  static get properties() {
+    return { name: { type: String } };
+  }
+
+  constructor() {
+    super();
+    this.name = "World";
+  }
+
+  render() {
+    return html`
+      <p>Hello, ${this.name}!</p>
+    `;
+  }
+}
+
+customElements.define("simple-greeting", SimpleGreeting);
